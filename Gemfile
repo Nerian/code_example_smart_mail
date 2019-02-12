@@ -18,6 +18,7 @@ gem 'uglifier', '>= 1.3.0'
 
 gem 'slim-rails'
 gem "chartkick"
+gem 'money-rails'
 gem 'eu_central_bank', github: 'nerian/eu_central_bank', branch: 'historical-rates'
 gem 'bootstrap', '~> 4.3.0'
 gem 'jquery-rails'
