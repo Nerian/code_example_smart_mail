@@ -1,1 +1,16 @@
-= line_chart @mock_data, { legend: "bottom", defer: true, points: false }
+.card#super-graph
+  .card-header
+    span <b>#{Money::Currency.new(@origin).name}</b> exchange rate to <b>#{@target_currencies.join(', ')}</b>
+  .card-body
+    = line_chart @data, { legend: "bottom", points: false }
+
+    hr
+    .alert.alert-info Want to change the currency of origin?
+
+    <nav class="nav nav-pills flex-column flex-sm-row">
+      - @currencies.each do |target|
+        - if @origin == target
+          = link_to @origin, converter_path(origin: @origin), class: 'flex-sm-fill text-sm-center nav-link active'
+        - else
+          = link_to target, converter_path(origin: target), class: 'flex-sm-fill text-sm-center nav-link'
+    </nav>

@@ -19,6 +19,8 @@ gem 'uglifier', '>= 1.3.0'
 gem 'slim-rails'
 gem "chartkick"
 gem 'eu_central_bank', github: 'nerian/eu_central_bank', branch: 'historical-rates'
+gem 'bootstrap', '~> 4.3.0'
+gem 'jquery-rails'
 
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
