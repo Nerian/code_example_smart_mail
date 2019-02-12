@@ -1,16 +1,15 @@
 .card#super-graph
   .card-header
-    span <b>#{Money::Currency.new(@origin).name}</b> exchange rate to <b>#{@target_currencies.join(', ')}</b>
-  .card-body
-    = line_chart @data, { legend: "bottom", points: false }
-
-    hr
-    .alert.alert-info Want to change the currency of origin?
-
-    <nav class="nav nav-pills flex-column flex-sm-row">
+    <ul class="nav nav-pills card-header-pills">
       - @currencies.each do |target|
-        - if @origin == target
-          = link_to @origin, converter_path(origin: @origin), class: 'flex-sm-fill text-sm-center nav-link active'
-        - else
-          = link_to target, converter_path(origin: target), class: 'flex-sm-fill text-sm-center nav-link'
-    </nav>
+        li
+          - if @origin == target
+            = link_to @origin, converter_path(origin: @origin), class: 'nav-link active'
+          - else
+            = link_to target, converter_path(origin: target), class: 'nav-link'
+
+  .card-body
+    p
+      <b>1 #{Money::Currency.new(@origin).name}</b> exchange rate to <b>#{@target_currencies.join(', ')}</b>
+
+    = line_chart @data, { legend: "bottom", points: false }
