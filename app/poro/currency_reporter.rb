@@ -31,6 +31,8 @@ class CurrencyReporter
       rescue Money::Bank::UnknownRate
         # eu_bank does not publish exchange rates on weekends. So we take the previous value.
         currency_data[date] = @last_valid_rate
+      rescue Money::Currency::UnknownCurrency => e
+        raise StandardError.new("#{e.message}. Supported currencies are: #{EuCentralBank::CURRENCIES.join(', ')}")
       end
     end
 

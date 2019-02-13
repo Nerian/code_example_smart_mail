@@ -12,4 +12,8 @@
     p
       <b>1 #{Money::Currency.new(@origin).name}</b> exchange rate to <b>#{@target_currencies.join(', ')}</b>
 
+    - if flash[:error]
+      .alert.alert-danger
+        = flash[:error]
+
     = line_chart @data, { legend: "bottom", points: false }

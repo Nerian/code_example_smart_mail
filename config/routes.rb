@@ -3,5 +3,5 @@ Rails.application.routes.draw do
 
   get '/pages/:origin/:currencies', to: 'pages#index', defaults: { origin: 'BRL', currencies: 'EUR,USD,AUD,BRL' }, as: :converter
 
-  get '/', to: redirect('/pages/BRL/EUR,USD,AUD,BRL')
+  get '/', to: redirect('/pages/BRL/EUR,USD,AUD,BRL'), as: :main
 end
