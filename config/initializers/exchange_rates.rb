@@ -1,3 +1,4 @@
 eu_bank = EuCentralBank.new
 Money.default_bank = eu_bank
-eu_bank.update_historical_rates('/tmp/all.xml', true)
+
+eu_bank.update_historical_rates(nil, true)
